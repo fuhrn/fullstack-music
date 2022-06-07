@@ -1,9 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import GradientLayout from '../components/gradientLayout'
 
+// interesante, typescript me permite renderizar aun cuando no paso todos los props
 export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <GradientLayout
+      color="red"
+      subtitle="profile"
+      title="Néstor Fuhr"
+      description="15 public playlists"
+      image="https://dl.dropboxusercontent.com/s/bgiv0ssz3xpotz9/peep.png?dl=0"
+      roundImage
+    ></GradientLayout>
+  );
 }
