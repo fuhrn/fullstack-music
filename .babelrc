@@ -1,4 +1,5 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["superjson-next"]
+  "presets": ["next/babel"]
+  // no me funciona si uso plugings como en tutorial
+  // "plugins": ["superjson-next"]
 }

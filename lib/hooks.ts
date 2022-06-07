@@ -6,8 +6,9 @@ import fetcher from './fetcher'
 // "before I was using redux, bunks, sagas, things like that"
 // and this works with graphql as well
 export const useMe = () => {
-  const { data, error } = useSWR('/', fetcher)
+  const { data, error } = useSWR('/me', fetcher)
   
+  console.log('useMe: ', data)
   return {
     user: data,
     isLoading: !data && !error,
