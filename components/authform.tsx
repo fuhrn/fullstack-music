@@ -60,6 +60,7 @@ const Authform: FC<{ mode: 'signin' | 'signup' }> = ({ mode }) => {
               <Text>Login with user "user@test.com" and password "password".</Text>
               <Text>Select "Playlist" on sidebar.</Text>
               <Text>Click on "Play" or on any playlist's track music.</Text>
+              <Text>Wait a few seconds if music does not play immediatly.</Text>
               <Text>Player on bottom page fully operational.</Text>
               <Text>Menu on sidebar functionality to be developed.</Text>
             </Box>
