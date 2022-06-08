@@ -46,13 +46,16 @@ const Home = ({ artists }) => {
 };
 
 export const getServerSideProps = async () => {
-  // para que funcione (no que es lo q anda mal), tuve que hacer stringify + JSON.parse
-  const artistsP = await prisma.artist.findMany({});
-  const artistsS = JSON.stringify(artistsP);
-  const artists = JSON.parse(artistsS)
-  return {
-    props: { artists },
-  };
+  const artists = await prisma.artist.findMany({});
+
+
+    return {
+      props: {
+        // para que funcione (no que es lo q anda mal), tuve que hacer stringify + JSON.parse
+        artists: JSON.parse(JSON.stringify(artists)),
+      },
+    };
+  
 };
 
 export default Home;
