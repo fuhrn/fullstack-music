@@ -15,7 +15,7 @@ const SongTable = ({ songs }) => {
   }
 
   return (
-    <Box bg="transparent">
+    <Box bg="transparent" color="white">
       <Box padding="10px" marginBottom="20px">
         <Box marginBottom="30px">
           <IconButton
