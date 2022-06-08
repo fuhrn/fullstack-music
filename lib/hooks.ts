@@ -8,7 +8,7 @@ import fetcher from './fetcher'
 export const useMe = () => {
   const { data, error } = useSWR('/me', fetcher)
   
-  console.log('useMe: ', data)
+  // console.log('useMe: ', data)
   return {
     user: data,
     isLoading: !data && !error,

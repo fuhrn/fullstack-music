@@ -19,7 +19,7 @@ const getBGColor = (id) => {
 };
 
 const Playlist = ({ playlist }) => {
-  console.log(playlist.songs)
+  // console.log(playlist.songs)
   const color = getBGColor(playlist.id);
   return (
     <GradientLayout
