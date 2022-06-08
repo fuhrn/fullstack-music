@@ -3,9 +3,17 @@ import { Table, Thead, Td, Tr, Tbody, Th, IconButton } from "@chakra-ui/react";
 import { BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { formatDate, formatTime } from "../lib/formatters";
+import { useStoreActions } from "easy-peasy";
 
 const SongTable = ({ songs }) => {
-  // console.log("songs: ", songs);
+  const playSongs = useStoreActions((store: any) => store.changeActiveSongs);
+  const setActiveSong = useStoreActions((store: any) => store.changeActiveSong);
+
+  const handlePlay = (activeSong?) => {
+    setActiveSong(activeSong || songs[0])
+    playSongs(songs)
+  }
+
   return (
     <Box bg="transparent">
       <Box padding="10px" marginBottom="20px">
@@ -16,6 +24,10 @@ const SongTable = ({ songs }) => {
             colorScheme="green"
             size="lg"
             isRound
+            // uso un callback para que handlePlay pueda ejecutarse SIN arguments
+            // si hiciera onClick = {handlePlay} -> pasaria event como argument -> bug
+            // entonces e seria el "activeSong"...
+            onClick={() => handlePlay()}
             color="white"
           />
         </Box>
@@ -41,7 +53,8 @@ const SongTable = ({ songs }) => {
                   },
                 }}
                 key={song.id}
-                cursor="cursor"
+                cursor="pointer"
+                onClick={() => handlePlay(song)}
               >
                 <Td>{i + 1}</Td>
                 <Td>{song.name}</Td>
